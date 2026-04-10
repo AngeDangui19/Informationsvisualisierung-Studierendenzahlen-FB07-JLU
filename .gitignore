@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# build folders
+build/
+cmake-build-*/
+
+# VSCode
+.vscode/
+
+# compiled files
+*.o
+*.out
+*.a
