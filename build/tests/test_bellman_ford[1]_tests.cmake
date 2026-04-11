@@ -1,0 +1,3 @@
+add_test([=[BellmanFordTest.SimpleWeightedDirectedGraph]=]  /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests/test_bellman_ford [==[--gtest_filter=BellmanFordTest.SimpleWeightedDirectedGraph]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[BellmanFordTest.SimpleWeightedDirectedGraph]=]  PROPERTIES DEF_SOURCE_LINE /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/tests/test_bellman_ford.cpp:6 WORKING_DIRECTORY /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  test_bellman_ford_TESTS BellmanFordTest.SimpleWeightedDirectedGraph)

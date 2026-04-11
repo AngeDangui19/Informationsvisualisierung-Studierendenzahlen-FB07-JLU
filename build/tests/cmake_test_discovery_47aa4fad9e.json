@@ -1,0 +1,17 @@
+{
+  "tests": 1,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "TopologicalSortTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "SimpleDag",
+          "file": "\/Users\/leyla.louache\/Documents\/Uni\/POO\/final_project\/GraphLibrary\/tests\/test_topological_sort.cpp",
+          "line": 6
+        }
+      ]
+    }
+  ]
+}

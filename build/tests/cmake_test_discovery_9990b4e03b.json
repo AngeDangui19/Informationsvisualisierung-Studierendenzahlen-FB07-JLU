@@ -1,0 +1,28 @@
+{
+  "tests": 2,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "DirectedGraphTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "AddVertex",
+          "file": "\/Users\/leyla.louache\/Documents\/Uni\/POO\/final_project\/GraphLibrary\/tests\/test_graphs.cpp",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "name": "UndirectedGraphTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "AddEdge",
+          "file": "\/Users\/leyla.louache\/Documents\/Uni\/POO\/final_project\/GraphLibrary\/tests\/test_graphs.cpp",
+          "line": 15
+        }
+      ]
+    }
+  ]
+}

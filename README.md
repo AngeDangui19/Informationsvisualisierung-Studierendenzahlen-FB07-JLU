@@ -11,6 +11,7 @@ Small C++ graph library for:
 - DFS
 - Topological Sort
 - Dijkstra
+- Bellman-Ford
 - Prim
 - Kruskal
 - Connected Components

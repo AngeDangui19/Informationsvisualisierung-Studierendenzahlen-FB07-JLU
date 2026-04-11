@@ -1,0 +1,5 @@
+if(EXISTS "/Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests/test_dijkstra[1]_tests.cmake")
+  include("/Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests/test_dijkstra[1]_tests.cmake")
+else()
+  add_test(test_dijkstra_NOT_BUILT test_dijkstra_NOT_BUILT)
+endif()
