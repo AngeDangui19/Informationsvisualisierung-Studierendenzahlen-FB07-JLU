@@ -1,0 +1,17 @@
+{
+  "tests": 1,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "BellmanFordTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "SimpleWeightedDirectedGraph",
+          "file": "\/Users\/leyla.louache\/Documents\/Uni\/POO\/final_project\/GraphLibrary\/tests\/test_bellman_ford.cpp",
+          "line": 6
+        }
+      ]
+    }
+  ]
+}

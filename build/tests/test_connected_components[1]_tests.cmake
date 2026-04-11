@@ -1,0 +1,3 @@
+add_test([=[ConnectedComponentsTest.TwoComponents]=]  /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests/test_connected_components [==[--gtest_filter=ConnectedComponentsTest.TwoComponents]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[ConnectedComponentsTest.TwoComponents]=]  PROPERTIES DEF_SOURCE_LINE /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/tests/test_connected_components.cpp:6 WORKING_DIRECTORY /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  test_connected_components_TESTS ConnectedComponentsTest.TwoComponents)

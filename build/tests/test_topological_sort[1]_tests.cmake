@@ -1,0 +1,3 @@
+add_test([=[TopologicalSortTest.SimpleDag]=]  /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests/test_topological_sort [==[--gtest_filter=TopologicalSortTest.SimpleDag]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[TopologicalSortTest.SimpleDag]=]  PROPERTIES DEF_SOURCE_LINE /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/tests/test_topological_sort.cpp:6 WORKING_DIRECTORY /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  test_topological_sort_TESTS TopologicalSortTest.SimpleDag)

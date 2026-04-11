@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgraphlib.a CMakeFiles/graphlib.dir/src/directed_graph.cpp.o CMakeFiles/graphlib.dir/src/undirected_graph.cpp.o CMakeFiles/graphlib.dir/src/weighted_directed_graph.cpp.o CMakeFiles/graphlib.dir/src/weighted_undirected_graph.cpp.o CMakeFiles/graphlib.dir/src/traversal_algorithms.cpp.o CMakeFiles/graphlib.dir/src/shortest_path_algorithms.cpp.o CMakeFiles/graphlib.dir/src/mst_algorithms.cpp.o CMakeFiles/graphlib.dir/src/connectivity_algorithms.cpp.o CMakeFiles/graphlib.dir/src/properties.cpp.o
+/usr/bin/ranlib libgraphlib.a

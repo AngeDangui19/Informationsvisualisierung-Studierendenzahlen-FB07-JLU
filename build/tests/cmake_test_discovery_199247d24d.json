@@ -1,0 +1,22 @@
+{
+  "tests": 2,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "PropertiesTest",
+      "tests": 2,
+      "testsuite": [
+        {
+          "name": "DagProperty",
+          "file": "\/Users\/leyla.louache\/Documents\/Uni\/POO\/final_project\/GraphLibrary\/tests\/test_properties.cpp",
+          "line": 9
+        },
+        {
+          "name": "PositiveWeightsProperty",
+          "file": "\/Users\/leyla.louache\/Documents\/Uni\/POO\/final_project\/GraphLibrary\/tests\/test_properties.cpp",
+          "line": 15
+        }
+      ]
+    }
+  ]
+}
