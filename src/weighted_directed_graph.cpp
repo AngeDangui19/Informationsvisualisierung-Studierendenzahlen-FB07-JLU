@@ -25,3 +25,33 @@ std::size_t WeightedDirectedGraph::edge_count() const {
 bool WeightedDirectedGraph::empty() const {
     return adjacency_list_.empty();
 }
+
+bool WeightedDirectedGraph::has_vertex(Vertex v) const {
+    return v < adjacency_list_.size();
+}
+
+bool WeightedDirectedGraph::has_edge(Vertex from, Vertex to) const {
+    for (const auto& [neighbor, weight] : adjacency_list_.at(from)) {
+        (void)weight;
+        if (neighbor == to) {
+            return true;
+        }
+    }
+    return false;
+}
+
+std::size_t WeightedDirectedGraph::degree(Vertex v) const {
+    return adjacency_list_.at(v).size();
+}
+
+std::vector<WeightedDirectedGraph::Vertex>
+WeightedDirectedGraph::vertices() const {
+    std::vector<Vertex> result;
+    result.reserve(adjacency_list_.size());
+
+    for (Vertex v = 0; v < adjacency_list_.size(); ++v) {
+        result.push_back(v);
+    }
+
+    return result;
+}
