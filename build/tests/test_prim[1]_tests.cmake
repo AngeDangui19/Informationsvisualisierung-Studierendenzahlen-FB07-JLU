@@ -1,3 +1,0 @@
-add_test([=[PrimTest.SimpleWeightedUndirectedGraph]=]  /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests/test_prim [==[--gtest_filter=PrimTest.SimpleWeightedUndirectedGraph]==] --gtest_also_run_disabled_tests)
-set_tests_properties([=[PrimTest.SimpleWeightedUndirectedGraph]=]  PROPERTIES DEF_SOURCE_LINE /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/tests/test_prim.cpp:6 WORKING_DIRECTORY /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-set(  test_prim_TESTS PrimTest.SimpleWeightedUndirectedGraph)

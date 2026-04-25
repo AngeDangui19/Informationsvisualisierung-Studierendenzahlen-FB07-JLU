@@ -1,5 +1,0 @@
-add_test([=[DirectedGraphTest.AddVertex]=]  /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests/test_graphs [==[--gtest_filter=DirectedGraphTest.AddVertex]==] --gtest_also_run_disabled_tests)
-set_tests_properties([=[DirectedGraphTest.AddVertex]=]  PROPERTIES DEF_SOURCE_LINE /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/tests/test_graphs.cpp:8 WORKING_DIRECTORY /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-add_test([=[UndirectedGraphTest.AddEdge]=]  /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests/test_graphs [==[--gtest_filter=UndirectedGraphTest.AddEdge]==] --gtest_also_run_disabled_tests)
-set_tests_properties([=[UndirectedGraphTest.AddEdge]=]  PROPERTIES DEF_SOURCE_LINE /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/tests/test_graphs.cpp:15 WORKING_DIRECTORY /Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-set(  test_graphs_TESTS DirectedGraphTest.AddVertex UndirectedGraphTest.AddEdge)

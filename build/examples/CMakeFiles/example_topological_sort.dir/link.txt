@@ -1,1 +1,0 @@
-/usr/bin/clang++ -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/example_topological_sort.dir/example_topological_sort.cpp.o -o example_topological_sort  ../libgraphlib.a
