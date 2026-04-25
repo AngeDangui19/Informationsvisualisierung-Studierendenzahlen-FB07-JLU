@@ -12,3 +12,6 @@ cmake-build-*/
 *.o
 *.out
 *.a
+
+# generated graph outputs
+logbook_graphs/
