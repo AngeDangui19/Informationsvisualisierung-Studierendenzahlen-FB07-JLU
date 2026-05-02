@@ -1,5 +1,0 @@
-if(EXISTS "/Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests/test_bellman_ford[1]_tests.cmake")
-  include("/Users/leyla.louache/Documents/Uni/POO/final_project/GraphLibrary/build/tests/test_bellman_ford[1]_tests.cmake")
-else()
-  add_test(test_bellman_ford_NOT_BUILT test_bellman_ford_NOT_BUILT)
-endif()
