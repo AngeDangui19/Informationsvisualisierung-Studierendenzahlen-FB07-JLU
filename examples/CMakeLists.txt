@@ -1,0 +1,32 @@
+add_executable(example_bfs example_bfs.cpp)
+target_link_libraries(example_bfs PRIVATE graphlib)
+
+add_executable(example_dfs example_dfs.cpp)
+target_link_libraries(example_dfs PRIVATE graphlib)
+
+add_executable(example_topological_sort example_topological_sort.cpp)
+target_link_libraries(example_topological_sort PRIVATE graphlib)
+
+add_executable(example_dijkstra example_dijkstra.cpp)
+target_link_libraries(example_dijkstra PRIVATE graphlib)
+
+add_executable(example_prim example_prim.cpp)
+target_link_libraries(example_prim PRIVATE graphlib)
+
+add_executable(example_kruskal example_kruskal.cpp)
+target_link_libraries(example_kruskal PRIVATE graphlib)
+
+add_executable(example_connected_components example_connected_components.cpp)
+target_link_libraries(example_connected_components PRIVATE graphlib)
+
+add_executable(example_properties example_properties.cpp)
+target_link_libraries(example_properties PRIVATE graphlib)
+
+add_executable(example_bellman_ford example_bellman_ford.cpp)
+target_link_libraries(example_bellman_ford PRIVATE graphlib)
+
+add_executable(example_weighted_directed_graphs example_weighted_directed_graphs.cpp)
+target_link_libraries(example_weighted_directed_graphs PRIVATE graphlib)
+
+add_executable(example_weighted_undirected_graph example_weighted_undirected_graph.cpp)
+target_link_libraries(example_weighted_undirected_graph PRIVATE graphlib)
