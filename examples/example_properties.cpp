@@ -6,12 +6,10 @@
 int main() {
     WeightedDirectedGraph graph;
 
-    // Vertices avec noms
     auto v0 = graph.add_vertex("v0");
     auto v1 = graph.add_vertex("v1");
     auto v2 = graph.add_vertex("v2");
 
-    // Edges avec poids + label
     graph.add_edge(v0, v1, 4.0, "e0");
     graph.add_edge(v0, v2, 2.0, "e1");
     graph.add_edge(v2, v1, 1.0, "e2");
@@ -38,12 +36,6 @@ int main() {
             std::cout << '\n';
         }
     }
-
-    // Export Graphviz
-    std::ofstream file("../../logbook_graphs/properties_graph.dot");
-    graph.to_graphviz(file);
-
-    std::cout << "\nGraph written to logbook_graphs/properties_graph.dot\n";
 
     return 0;
 }
