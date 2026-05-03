@@ -1,68 +1,49 @@
-#include "graph/properties.hpp"
-
-#include "graph/directed_graph.hpp"
-#include "graph/undirected_graph.hpp"
 #include "graph/weighted_directed_graph.hpp"
-#include "graph/weighted_undirected_graph.hpp"
 
-#include <cstddef>
 #include <iostream>
+#include <fstream>
 
 int main() {
-    {
-        graph::DirectedGraph g;
+    WeightedDirectedGraph graph;
 
-        for (std::size_t i = 0; i < 3; ++i) {
-            g.add_vertex();
-        }
+    // Vertices avec noms
+    auto v0 = graph.add_vertex("v0");
+    auto v1 = graph.add_vertex("v1");
+    auto v2 = graph.add_vertex("v2");
 
-        g.add_edge(0, 1);
-        g.add_edge(1, 2);
+    // Edges avec poids + label
+    graph.add_edge(v0, v1, 4.0, "e0");
+    graph.add_edge(v0, v2, 2.0, "e1");
+    graph.add_edge(v2, v1, 1.0, "e2");
 
-        std::cout << "Directed graph is DAG: "
-                  << graph::is_dag(g) << '\n';
+    std::cout << "Vertices:\n";
+    for (auto v : graph) {
+        std::cout << v << " -> "
+                  << graph.vertex_property(v).name << '\n';
     }
 
-    {
-        graph::UndirectedGraph g;
+    std::cout << "\nEdges:\n";
+    for (auto from : graph) {
+        for (const auto& edge : graph.neighbors(from)) {
+            std::cout << graph.vertex_property(from).name
+                      << " -> "
+                      << graph.vertex_property(edge.to).name
+                      << " | weight = "
+                      << edge.weight;
 
-        for (std::size_t i = 0; i < 3; ++i) {
-            g.add_vertex();
+            if (!edge.label.empty()) {
+                std::cout << " | label = " << edge.label;
+            }
+
+            std::cout << '\n';
         }
-
-        g.add_edge(0, 1);
-        g.add_edge(1, 2);
-
-        std::cout << "Undirected graph is tree: "
-                  << graph::is_tree(g) << '\n';
     }
 
-    {
-        graph::WeightedDirectedGraph g;
+    // Export Graphviz
+    std::ofstream file("../../logbook_graphs/properties_graph.dot");
+    graph.to_graphviz(file);
 
-        for (std::size_t i = 0; i < 2; ++i) {
-            g.add_vertex();
-        }
-
-        g.add_edge(0, 1, 5.0);
-
-        std::cout << "Weighted directed graph has only positive weights: "
-                  << graph::has_only_positive_weights(g) << '\n';
-    }
-
-    {
-        graph::WeightedUndirectedGraph g;
-
-        for (std::size_t i = 0; i < 3; ++i) {
-            g.add_vertex();
-        }
-
-        g.add_edge(0, 1, 1.0);
-        g.add_edge(1, 2, 2.0);
-
-        std::cout << "Weighted undirected graph is connected: "
-                  << graph::is_connected(g) << '\n';
-    }
+    std::cout << "\nGraph written to logbook_graphs/properties_graph.dot\n";
 
     return 0;
 }

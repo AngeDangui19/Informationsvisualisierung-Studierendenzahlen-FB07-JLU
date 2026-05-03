@@ -24,3 +24,9 @@ target_link_libraries(example_properties PRIVATE graphlib)
 
 add_executable(example_bellman_ford example_bellman_ford.cpp)
 target_link_libraries(example_bellman_ford PRIVATE graphlib)
+
+add_executable(example_weighted_directed_graphs example_weighted_directed_graphs.cpp)
+target_link_libraries(example_weighted_directed_graphs PRIVATE graphlib)
+
+add_executable(example_weighted_undirected_graph example_weighted_undirected_graph.cpp)
+target_link_libraries(example_weighted_undirected_graph PRIVATE graphlib)

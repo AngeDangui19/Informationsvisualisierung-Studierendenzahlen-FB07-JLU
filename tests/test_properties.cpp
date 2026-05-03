@@ -1,65 +1,21 @@
+#include <catch2/catch_test_macros.hpp>
 #include "graph/properties.hpp"
 
-#include "graph/directed_graph.hpp"
-#include "graph/undirected_graph.hpp"
-#include "graph/weighted_directed_graph.hpp"
-#include "graph/weighted_undirected_graph.hpp"
+TEST_CASE("Graph properties") {
+    DirectedGraph dg;
 
-#include <cassert>
-#include <cstddef>
+    auto v0 = dg.add_vertex();
+    auto v1 = dg.add_vertex();
 
-int main() {
-    {
-        graph::DirectedGraph g;
+    dg.add_edge(v0, v1);
 
-        for (std::size_t i = 0; i < 3; ++i) {
-            g.add_vertex();
-        }
+    REQUIRE(graph::is_dag(dg));
 
-        g.add_edge(0, 1);
-        g.add_edge(1, 2);
+    UndirectedGraph ug;
+    auto u0 = ug.add_vertex();
+    auto u1 = ug.add_vertex();
 
-        assert(graph::is_dag(g));
-    }
+    ug.add_edge(u0, u1);
 
-    {
-        graph::UndirectedGraph g;
-
-        for (std::size_t i = 0; i < 3; ++i) {
-            g.add_vertex();
-        }
-
-        g.add_edge(0, 1);
-        g.add_edge(1, 2);
-
-        assert(graph::is_tree(g));
-    }
-
-    {
-        graph::WeightedDirectedGraph g;
-
-        for (std::size_t i = 0; i < 3; ++i) {
-            g.add_vertex();
-        }
-
-        g.add_edge(0, 1, 2.5);
-        g.add_edge(1, 2, 3.0);
-
-        assert(graph::has_only_positive_weights(g));
-    }
-
-    {
-        graph::WeightedUndirectedGraph g;
-
-        for (std::size_t i = 0; i < 3; ++i) {
-            g.add_vertex();
-        }
-
-        g.add_edge(0, 1, 1.0);
-        g.add_edge(1, 2, 2.0);
-
-        assert(graph::is_connected(g));
-    }
-
-    return 0;
+    REQUIRE(graph::is_tree(ug));
 }

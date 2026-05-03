@@ -6,15 +6,14 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+include(CTest)
+enable_testing()
+
 add_library(graphlib
     src/directed_graph.cpp
     src/undirected_graph.cpp
     src/weighted_directed_graph.cpp
     src/weighted_undirected_graph.cpp
-    src/traversal_algorithms.cpp
-    src/shortest_path_algorithms.cpp
-    src/mst_algorithms.cpp
-    src/connectivity_algorithms.cpp
     src/properties.cpp
 )
 
