@@ -1,16 +1,19 @@
+#include "graph/directed_graph.hpp"
+#include "graph/algorithms/traversal.hpp"
 #include <iostream>
 
-#include "graph/algorithms.hpp"
-#include "graph/directed_graph.hpp"
-
 int main() {
-    DirectedGraph graph;
-    graph.add_vertex();
-    graph.add_vertex();
-    graph.add_edge(0, 1);
+    DirectedGraph g;
 
-    const auto order = topological_sort(graph);
+    auto v0 = g.add_vertex();
+    auto v1 = g.add_vertex();
+    auto v2 = g.add_vertex();
 
-    std::cout << "Topological order size: " << order.size() << '\n';
-    return 0;
+    g.add_edge(v0, v1);
+    g.add_edge(v1, v2);
+
+    auto order = graph::topological_sort(g);
+
+    for (auto v : order)
+        std::cout << v << " ";
 }

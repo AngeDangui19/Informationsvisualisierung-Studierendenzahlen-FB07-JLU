@@ -2,22 +2,22 @@
 
 #include <cstddef>
 #include <vector>
+#include <stdexcept>
 
 class UndirectedGraph {
 public:
-    using Vertex = std::size_t;
+    using vertex_type = std::size_t;
 
-    UndirectedGraph() = default;
+    vertex_type add_vertex();
+    void add_edge(vertex_type a, vertex_type b);
 
-    Vertex add_vertex();
-    void add_edge(Vertex u, Vertex v);
+    bool has_vertex(vertex_type v) const;
+    const std::vector<vertex_type>& neighbors(vertex_type v) const;
 
-    [[nodiscard]] const std::vector<Vertex>& neighbors(Vertex v) const;
-    [[nodiscard]] std::size_t vertex_count() const;
-    [[nodiscard]] std::size_t edge_count() const;
-    [[nodiscard]] bool empty() const;
+    std::size_t size() const;
+
+    std::vector<vertex_type> vertices() const;
 
 private:
-    std::vector<std::vector<Vertex>> adjacency_list_{};
-    std::size_t edge_count_{0};
+    std::vector<std::vector<vertex_type>> adj_;
 };

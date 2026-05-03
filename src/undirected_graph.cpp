@@ -1,28 +1,35 @@
 #include "graph/undirected_graph.hpp"
 
-UndirectedGraph::Vertex UndirectedGraph::add_vertex() {
-    adjacency_list_.emplace_back();
-    return adjacency_list_.size() - 1;
+UndirectedGraph::vertex_type UndirectedGraph::add_vertex() {
+    adj_.emplace_back();
+    return adj_.size() - 1;
 }
 
-void UndirectedGraph::add_edge(Vertex u, Vertex v) {
-    adjacency_list_.at(u).push_back(v);
-    adjacency_list_.at(v).push_back(u);
-    ++edge_count_;
+void UndirectedGraph::add_edge(vertex_type a, vertex_type b) {
+    if (!has_vertex(a) || !has_vertex(b))
+        throw std::out_of_range("Invalid vertex");
+
+    adj_[a].push_back(b);
+    adj_[b].push_back(a);
 }
 
-const std::vector<UndirectedGraph::Vertex>& UndirectedGraph::neighbors(Vertex v) const {
-    return adjacency_list_.at(v);
+bool UndirectedGraph::has_vertex(vertex_type v) const {
+    return v < adj_.size();
 }
 
-std::size_t UndirectedGraph::vertex_count() const {
-    return adjacency_list_.size();
+const std::vector<UndirectedGraph::vertex_type>&
+UndirectedGraph::neighbors(vertex_type v) const {
+    return adj_[v];
 }
 
-std::size_t UndirectedGraph::edge_count() const {
-    return edge_count_;
+std::size_t UndirectedGraph::size() const {
+    return adj_.size();
 }
 
-bool UndirectedGraph::empty() const {
-    return adjacency_list_.empty();
+std::vector<UndirectedGraph::vertex_type>
+UndirectedGraph::vertices() const {
+    std::vector<vertex_type> v;
+    for (vertex_type i = 0; i < size(); ++i)
+        v.push_back(i);
+    return v;
 }

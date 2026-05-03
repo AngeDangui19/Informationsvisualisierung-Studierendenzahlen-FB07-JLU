@@ -1,27 +1,34 @@
 #include "graph/directed_graph.hpp"
 
-DirectedGraph::Vertex DirectedGraph::add_vertex() {
-    adjacency_list_.emplace_back();
-    return adjacency_list_.size() - 1;
+DirectedGraph::vertex_type DirectedGraph::add_vertex() {
+    adj_.emplace_back();
+    return adj_.size() - 1;
 }
 
-void DirectedGraph::add_edge(Vertex from, Vertex to) {
-    adjacency_list_.at(from).push_back(to);
-    ++edge_count_;
+void DirectedGraph::add_edge(vertex_type from, vertex_type to) {
+    if (!has_vertex(from) || !has_vertex(to))
+        throw std::out_of_range("Invalid vertex");
+
+    adj_[from].push_back(to);
 }
 
-const std::vector<DirectedGraph::Vertex>& DirectedGraph::neighbors(Vertex v) const {
-    return adjacency_list_.at(v);
+bool DirectedGraph::has_vertex(vertex_type v) const {
+    return v < adj_.size();
 }
 
-std::size_t DirectedGraph::vertex_count() const {
-    return adjacency_list_.size();
+const std::vector<DirectedGraph::vertex_type>&
+DirectedGraph::neighbors(vertex_type v) const {
+    return adj_[v];
 }
 
-std::size_t DirectedGraph::edge_count() const {
-    return edge_count_;
+std::size_t DirectedGraph::size() const {
+    return adj_.size();
 }
 
-bool DirectedGraph::empty() const {
-    return adjacency_list_.empty();
+std::vector<DirectedGraph::vertex_type>
+DirectedGraph::vertices() const {
+    std::vector<vertex_type> v;
+    for (vertex_type i = 0; i < size(); ++i)
+        v.push_back(i);
+    return v;
 }

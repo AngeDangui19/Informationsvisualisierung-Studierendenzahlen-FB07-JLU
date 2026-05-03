@@ -1,15 +1,19 @@
-#include <gtest/gtest.h>
+#include <catch2/catch_test_macros.hpp>
+#include "graph/directed_graph.hpp"
+#include "graph/algorithms/traversal.hpp"
 
-#include "graph/algorithms.hpp"
-#include "graph/undirected_graph.hpp"
+TEST_CASE("DFS traversal") {
+    DirectedGraph g;
 
-TEST(DFSTest, BasicUndirectedGraph) {
-    UndirectedGraph graph;
-    graph.add_vertex();
-    graph.add_vertex();
-    graph.add_edge(0, 1);
+    auto v0 = g.add_vertex();
+    auto v1 = g.add_vertex();
+    auto v2 = g.add_vertex();
 
-    const auto result = dfs(graph, 0);
+    g.add_edge(v0, v1);
+    g.add_edge(v1, v2);
 
-    EXPECT_FALSE(result.empty());
+    auto order = graph::dfs(g, v0);
+
+    REQUIRE(order[0] == v0);
+    REQUIRE(order.size() == 3);
 }

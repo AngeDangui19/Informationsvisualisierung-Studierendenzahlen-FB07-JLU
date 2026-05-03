@@ -1,16 +1,19 @@
+#include "graph/directed_graph.hpp"
+#include "graph/algorithms/traversal.hpp"
 #include <iostream>
 
-#include "graph/algorithms.hpp"
-#include "graph/undirected_graph.hpp"
-
 int main() {
-    UndirectedGraph graph;
-    graph.add_vertex();
-    graph.add_vertex();
-    graph.add_edge(0, 1);
+    DirectedGraph g;
 
-    const auto result = bfs(graph, 0);
+    auto v0 = g.add_vertex();
+    auto v1 = g.add_vertex();
+    auto v2 = g.add_vertex();
 
-    std::cout << "BFS visited " << result.size() << " vertices.\n";
-    return 0;
+    g.add_edge(v0, v1);
+    g.add_edge(v1, v2);
+
+    auto order = graph::bfs(g, v0);
+
+    for (auto v : order)
+        std::cout << v << " ";
 }
