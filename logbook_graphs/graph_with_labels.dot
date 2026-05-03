@@ -1,7 +1,0 @@
-digraph G {
-  0 [label="v0"];
-  1 [label="v1"];
-  2 [label="v2"];
-  0 -> 1 [label="e0, 10"];
-  0 -> 2 [label="e1, 5"];
-}
