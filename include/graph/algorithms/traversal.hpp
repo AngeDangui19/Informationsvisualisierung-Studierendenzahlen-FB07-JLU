@@ -1,10 +1,26 @@
 #pragma once
 
-#include <vector>
 #include <queue>
 #include <stack>
+#include <vector>
 
 namespace graph {
+
+// Helper pour extraire le sommet cible depuis un voisin,
+// qu'il soit un simple entier (graphes non pondérés)
+// ou une struct Edge avec un champ .to (graphes pondérés)
+namespace detail {
+
+template <typename T>
+auto get_target(const T& neighbor) -> decltype(neighbor.to) {
+    return neighbor.to;
+}
+
+inline std::size_t get_target(std::size_t v) {
+    return v;
+}
+
+} // namespace detail
 
 // BFS
 template <typename Graph>
@@ -23,7 +39,8 @@ bfs(const Graph& g, typename Graph::vertex_type start) {
         V v = q.front(); q.pop();
         order.push_back(v);
 
-        for (auto u : g.neighbors(v)) {
+        for (const auto& neighbor : g.neighbors(v)) {
+            V u = detail::get_target(neighbor);
             if (!visited[u]) {
                 visited[u] = true;
                 q.push(u);
@@ -51,20 +68,19 @@ dfs(const Graph& g, typename Graph::vertex_type start) {
 
         if (visited[v]) continue;
         visited[v] = true;
-
         order.push_back(v);
 
-        for (auto u : g.neighbors(v)) {
-            if (!visited[u]) {
+        for (const auto& neighbor : g.neighbors(v)) {
+            V u = detail::get_target(neighbor);
+            if (!visited[u])
                 s.push(u);
-            }
         }
     }
 
     return order;
 }
 
-// Topological Sort
+// Topological Sort (graphes orientés uniquement)
 template <typename Graph>
 std::vector<typename Graph::vertex_type>
 topological_sort(const Graph& g) {
@@ -72,17 +88,14 @@ topological_sort(const Graph& g) {
 
     std::vector<int> indegree(g.size(), 0);
 
-    for (auto v : g.vertices()) {
-        for (auto u : g.neighbors(v)) {
-            indegree[u]++;
-        }
-    }
+    for (auto v : g.vertices())
+        for (const auto& neighbor : g.neighbors(v))
+            indegree[detail::get_target(neighbor)]++;
 
     std::queue<V> q;
-    for (V v = 0; v < g.size(); ++v) {
+    for (V v = 0; v < static_cast<V>(g.size()); ++v)
         if (indegree[v] == 0)
             q.push(v);
-    }
 
     std::vector<V> order;
 
@@ -90,7 +103,8 @@ topological_sort(const Graph& g) {
         V v = q.front(); q.pop();
         order.push_back(v);
 
-        for (auto u : g.neighbors(v)) {
+        for (const auto& neighbor : g.neighbors(v)) {
+            V u = detail::get_target(neighbor);
             if (--indegree[u] == 0)
                 q.push(u);
         }
@@ -99,4 +113,4 @@ topological_sort(const Graph& g) {
     return order;
 }
 
-}
+} // namespace graph
